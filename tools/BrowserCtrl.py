@@ -2,10 +2,7 @@ from tools.AppLogAnalyzer import AppLogAnalyzer
 from behave import fixture
 from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
-
-
 from tools.config import FULLSCREEN, INCOGNITO, BASE_URL, APP_LOGS
-
 
 
 def set_focus_on_browser(driver):
@@ -16,7 +13,6 @@ def set_focus_on_browser(driver):
     action.move_by_offset(x_coordinate, y_coordinate)
     action.click()
     action.perform()
-
 
 @fixture
 def run_browser(context):
