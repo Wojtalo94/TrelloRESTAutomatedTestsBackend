@@ -4,7 +4,6 @@ import requests
 class Request():
     def __init__(self):
         self._urls = {""}
-                      
     
     def url(self, name: str):
         if not name in self._urls:

@@ -1,9 +1,11 @@
 from tools.AppLogAnalyzer import AppLogAnalyzer
 from behave import fixture
 from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.firefox import GeckoDriverManager
+from webdriver_manager.microsoft import EdgeChromiumDriverManager
 from selenium.webdriver.common.action_chains import ActionChains
 from tools.config import FULLSCREEN, INCOGNITO, BASE_URL, APP_LOGS
-
 
 def set_focus_on_browser(driver):
     action = ActionChains(driver)
@@ -24,15 +26,15 @@ def run_browser(context):
             options.add_argument("--incognito")
         if APP_LOGS:
             options.set_capability('goog:loggingPrefs', {'performance': 'ALL'})
-        context.driver = webdriver.Chrome(options=options)
+        context.driver = webdriver.Chrome(service=webdriver.ChromeService(ChromeDriverManager().install()), options=options)
 
     elif context.browser == "firefox":
-        context.driver = webdriver.Firefox()
+        context.driver = webdriver.Firefox(service=webdriver.FirefoxService(GeckoDriverManager().install()))
         if FULLSCREEN:
             context.driver.maximize_window()
 
     elif context.browser == "edge":
-        context.driver = webdriver.Edge()
+        context.driver = webdriver.Edge(service=webdriver.EdgeService(EdgeChromiumDriverManager().install()))
         if FULLSCREEN:
             context.driver.maximize_window()
 
@@ -40,9 +42,8 @@ def run_browser(context):
         raise ValueError("Unsupported browser: " + context.browser)
 
     context.driver.get(BASE_URL)
-    context.AppLogAnalyzer = AppLogAnalyzer(context.driver)
+    context.gameLogAnalyzer = AppLogAnalyzer(context.driver)
 
     yield
 
     context.driver.close()
-

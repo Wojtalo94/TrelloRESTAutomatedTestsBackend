@@ -4,5 +4,5 @@ browser: "chrome" # choose 'chrome' or 'firefox' or 'edge'
 
 # test settings
 fullscreen: true
-incognito: true
-app_logs: true
+incognito: false
+app_logs: false

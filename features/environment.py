@@ -1,7 +1,6 @@
 import logging
 from behave import use_fixture
-from tools.BrowserCtrl import run_browser
-from tools.BrowserCtrl import set_focus_on_browser
+from tools.BrowserCtrl import run_browser, set_focus_on_browser
 from tools.config import BROWSER
 
 
@@ -21,9 +20,6 @@ def before_all(context):
 
 def before_feature(context, feature):
     logger.info('BEFORE FEATURE START')
-
     use_fixture(run_browser, context)
-
     set_focus_on_browser(context.driver)
-    
     logger.info('BEFORE FEATURE END')
