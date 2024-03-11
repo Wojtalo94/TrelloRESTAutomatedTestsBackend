@@ -30,7 +30,7 @@ pip install -r requirements.txt
 
 In the `config.yml` file we have:
 
-- configured basic address of the game under test
+- configured basic address of the app under test
 - the type of browser we want to use for testing
 - the configuration in which we want to run the browser
 

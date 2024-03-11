@@ -7,3 +7,4 @@ with open("tools/config.yml", "r") as file:
     FULLSCREEN = config["fullscreen"]
     INCOGNITO = config["incognito"]
     APP_LOGS = config["app_logs"]
+    MAX_WAIT = config["max_wait"]

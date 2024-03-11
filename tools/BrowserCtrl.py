@@ -1,4 +1,5 @@
 from tools.AppLogAnalyzer import AppLogAnalyzer
+from tools.AppController import AppController
 from behave import fixture
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
@@ -42,7 +43,8 @@ def run_browser(context):
         raise ValueError("Unsupported browser: " + context.browser)
 
     context.driver.get(BASE_URL)
-    context.gameLogAnalyzer = AppLogAnalyzer(context.driver)
+    #context.AppLogAnalyzer = AppLogAnalyzer(context.driver)
+    context.AppController = AppController(context.driver)
 
     yield
 
