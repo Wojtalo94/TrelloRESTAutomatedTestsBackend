@@ -2,6 +2,7 @@ import logging
 from behave import use_fixture
 from tools.BrowserCtrl import run_browser, set_focus_on_browser
 from tools.config import BROWSER
+from tools.AppController import AppController
 
 
 logging.basicConfig(filename="logs/logs_web.log",
@@ -14,6 +15,7 @@ logger = logging.getLogger("Enviornment")
 
 def before_all(context):
     logger.info('BEFORE ALL START')
+    context.app_controller = AppController()
     context.browser = BROWSER
     logger.info('BEFORE ALL END')
 
