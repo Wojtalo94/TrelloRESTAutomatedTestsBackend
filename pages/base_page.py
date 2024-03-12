@@ -6,9 +6,10 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 class BasePage():
     _log_in = (By.CSS_SELECTOR, "a[data-uuid*='login']")
-    _email = (By.CSS_SELECTOR, "")
+    _email = (By.CSS_SELECTOR, "input[id='username']")
 
     def __init__(self, driver):
+        self.driver = driver
         self.ec = ec
         self.wait = WebDriverWait(driver, MAX_WAIT)
 
@@ -18,6 +19,7 @@ class BasePage():
         return self
     
     def fill_email(self, email):
-        self.find_element(self._email).send_keys(email)
+        email_field = self.wait.until(self.ec.visibility_of_element_located(self._email))
+        self.driver.find_element(*self._email).send_keys(email)
         return self
     

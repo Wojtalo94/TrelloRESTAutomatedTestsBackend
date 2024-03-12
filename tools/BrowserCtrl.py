@@ -43,8 +43,7 @@ def run_browser(context):
         raise ValueError("Unsupported browser: " + context.browser)
 
     context.driver.get(BASE_URL)
-    #context.AppLogAnalyzer = AppLogAnalyzer(context.driver)
-    context.AppController = AppController(context.driver)
+    context.app_controller = AppController(context.driver)
 
     yield
 

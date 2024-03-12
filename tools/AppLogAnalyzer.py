@@ -3,7 +3,7 @@ import json
 import logging
 
 
-class AppLogAnalyzer:
+class AppLogAnalyzer():
     def __init__(self, driver):
         self._logger = logging.getLogger("AppLogAnalyzer")
         self.driver = driver
@@ -55,4 +55,3 @@ class AppLogAnalyzer:
             method = message['method']
             assert method != "Network.requestWillBeSent", f"Logs from app: '{method}'"
 
-    

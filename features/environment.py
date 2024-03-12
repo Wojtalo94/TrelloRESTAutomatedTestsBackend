@@ -15,7 +15,6 @@ logger = logging.getLogger("Enviornment")
 
 def before_all(context):
     logger.info('BEFORE ALL START')
-    context.app_controller = AppController()
     context.browser = BROWSER
     logger.info('BEFORE ALL END')
 

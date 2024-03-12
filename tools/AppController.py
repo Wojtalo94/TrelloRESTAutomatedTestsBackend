@@ -4,9 +4,10 @@ from pages.base_page import BasePage
 from tools.AppLogAnalyzer import AppLogAnalyzer
 
 
-class AppController:
+class AppController():
     def __init__(self, driver):
         self._logger = logging.getLogger("AppController")
+        self.driver = driver
         self._request = Request()
         self._base_page = BasePage(driver)
         self._AppLogAnalyzer = AppLogAnalyzer(driver)
