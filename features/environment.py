@@ -1,8 +1,7 @@
 import logging
 from behave import use_fixture
-from tools.BrowserCtrl import run_browser, set_focus_on_browser
+from tools.BrowserCtrl import run_browser
 from tools.config import BROWSER
-from tools.AppController import AppController
 
 
 logging.basicConfig(filename="logs/logs_web.log",

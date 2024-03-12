@@ -14,11 +14,9 @@ class AppController():
 
 
     def log_in(self):
-        self._base_page.click_log_in_button()
-        self._base_page.fill_email("wojtalo22@gmail.com")
+        self._base_page.click_log_in_button().fill_email("wojtalo222@gmail.com").click_submit_login()
+        self._base_page.fill_password("sumara290").click_submit_login().wait_for_main_page()
         
-
-
 
 
 
