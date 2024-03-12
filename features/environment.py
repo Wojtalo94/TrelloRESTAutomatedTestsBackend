@@ -2,7 +2,6 @@ import logging
 from behave import use_fixture
 from tools.BrowserCtrl import run_browser
 from tools.config import BROWSER
-from tools.Request import Request
 
 
 logging.basicConfig(filename="logs/logs_web.log",
@@ -18,9 +17,6 @@ def before_all(context):
     context.browser = BROWSER
     logger.info('BEFORE ALL END')
 
-    #_request = Request()
-    #response = _request.get_init_id()
-    #print(response)
 
 def before_feature(context, feature):
     logger.info('BEFORE FEATURE START')

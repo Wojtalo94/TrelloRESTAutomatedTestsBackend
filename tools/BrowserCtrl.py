@@ -1,4 +1,3 @@
-from tools.AppLogAnalyzer import AppLogAnalyzer
 from tools.AppController import AppController
 from behave import fixture
 from selenium import webdriver

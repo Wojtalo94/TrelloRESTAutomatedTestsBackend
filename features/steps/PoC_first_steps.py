@@ -1,4 +1,4 @@
-from behave import Given
+from behave import Given, Then
 import logging
 
 logger = logging.getLogger("PoC first test")
@@ -9,6 +9,13 @@ def step_impl(context):
     context.app_controller.log_in()
 
 
-@Given("Get id to send next requests")
+@Then("The user was logged in as {member_type}")
+def step_impl(context, member_type):
+    status = context.app_controller.rest_controller.check_member_type()
+    assert status == member_type, f"Wrong member type: {status}, should be: {member_type}"
+
+
+@Then("The user is not deactivated")
 def step_impl(context):
-    pass
+    status = context.app_controller.rest_controller.check_member_deactivation()
+    assert status == "false", f"Wrong member status: {status}, should be: false"
