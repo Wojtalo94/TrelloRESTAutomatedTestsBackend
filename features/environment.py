@@ -22,5 +22,4 @@ def before_all(context):
 def before_feature(context, feature):
     logger.info('BEFORE FEATURE START')
     use_fixture(run_browser, context)
-    set_focus_on_browser(context.driver)
     logger.info('BEFORE FEATURE END')
