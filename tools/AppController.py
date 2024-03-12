@@ -14,13 +14,6 @@ class AppController():
 
 
     def log_in(self):
-        self._base_page.click_log_in_button().fill_email("wojtalo222@gmail.com").click_submit_login()
-        self._base_page.fill_password("sumara290").click_submit_login().wait_for_main_page()
-        
-
-
-
-    # https://testuj.pl/blog/testowanie-aplikacji-rest-przy-uzyciu-postmana/
-
-    # https://trello.com/u/wojtalo222/boards
-    # email: wojtalo222@gmail.com
+        self._logger.info("Log in user in web app")
+        self._base_page.click_log_in_button().fill_email().click_submit_login()
+        self._base_page.fill_password().click_submit_login().wait_for_main_page()

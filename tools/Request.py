@@ -1,9 +1,13 @@
 import requests
+from tools.user_data import UserData
 
 
 class Request():
     def __init__(self):
-        self._urls = {""}
+        _user_data = UserData("tools/user_data.csv")
+        _api_key = _user_data.get_user_data("TRELLO_API_KEY")
+        _api_token = _user_data.get_user_data("TRELLO_API_TOKEN")
+        self._urls = {"trello_user": f"https://api.trello.com/1/members/me/?key={_api_key}&token={_api_token}"}
     
     def url(self, name: str):
         if not name in self._urls:
@@ -36,4 +40,7 @@ class Request():
     def delete(self, url: str):
         with requests.Session() as s:
             return self._prepare_return(s.delete(url, proxies=None))
-        
+    
+    def get_init_id(self):
+        response = self.get(self.url("trello_user"))
+        return response
