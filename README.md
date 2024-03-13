@@ -1,6 +1,6 @@
-# WebAutomatedTestsBackend
+# TrelloRESTAutomatedTestsBackend
 
-# Automated Tests - WebAutomatedTestsBackend
+# Automated Tests - TrelloRESTAutomatedTestsBackend
 
 ## Table of Contents
 
@@ -10,10 +10,10 @@
 
 ## Cloning an automated test repository
 
-Clone the **WebAutomatedTestsBackend** repository:
+Clone the **TrelloRESTAutomatedTestsBackend** repository:
 
 ```bash
-git clone https://github.com/Wojtalo94/WebAutomatedTestsBackend.git
+git clone https://github.com/Wojtalo94/TrelloRESTAutomatedTestsBackend.git
 ```
 
 ## Preparation of the web application environment
@@ -24,22 +24,4 @@ Create a virtual environment (**venv**) along with the installation of additiona
 python -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements.txt
-```
-
-## Browser configuration
-
-In the `config.yml` file we have:
-
-- configured basic address of the app under test
-- the type of browser we want to use for testing
-- the configuration in which we want to run the browser
-
-```python
-# YAML
-base_url: 'https://trello.com/'
-browser: 'chrome' # choose 'chrome' or 'firefox' or 'edge'
-
-# test settings
-fullscreen: true
-incognito: true
 ```
