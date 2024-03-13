@@ -18,4 +18,4 @@ def step_impl(context, member_type):
 @Then("The user is not deactivated")
 def step_impl(context):
     status = context.app_controller.rest_controller.check_member_deactivation()
-    assert status == "false", f"Wrong member status: {status}, should be: false"
+    assert status == False, f"Wrong member status: {status}, should be: False"
