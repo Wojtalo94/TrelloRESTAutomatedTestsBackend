@@ -19,15 +19,15 @@ def step_impl(context, board_name):
     assert get_board_name == board_name, f"Wrong board name type: {get_board_name}, should be: {board_name}"
 
 
-@Then("Remove the board named '{board_name}'")
-def step_impl(context, board_name):
-    logger.info(f"The user deletes an board named: {board_name}")
+@When("Remove the board")
+def step_impl(context):
+    logger.info(f"The user deletes the board")
     context.rest_controller.delete_board()
 
 
-@Then("The board named '{board_name}' has been removed")
-def step_impl(context, board_name):
-    logger.info(f"Checking if the {board_name} board has been deleted")
+@Then("The board has been removed")
+def step_impl(context):
+    logger.info(f"Checking if the board has been deleted")
     response, status_code = context.rest_controller.get_board_information()
     assert status_code == 404, f"Expected status code 404, but got {status_code}"
     assert response == {}, f"Board still present: {response}, should be: None"
