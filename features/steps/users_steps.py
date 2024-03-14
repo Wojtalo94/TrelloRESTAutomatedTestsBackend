@@ -1,7 +1,7 @@
 from behave import Then
 import logging
 
-logger = logging.getLogger("PoC first test")
+logger = logging.getLogger("User steps")
 
 
 @Then("The user was logged in as {member_type}")

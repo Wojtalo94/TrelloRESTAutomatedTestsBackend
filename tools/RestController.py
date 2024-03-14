@@ -14,11 +14,11 @@ class RestController():
 
     def _get_board_id(self, query_string):
         self._logger.info("Get board id for next requests")
-        response, _ = self.get_all_boards_data(query_string)
+        response, _ = self._get_all_boards_data(query_string)
         first_board_id = response[0]['id']
         return first_board_id
     
-    def get_all_boards_data(self, query_string):
+    def _get_all_boards_data(self, query_string):
         response = self._request.get(f"https://api.trello.com/1/members/me/boards/?{query_string}")
         return response
     
