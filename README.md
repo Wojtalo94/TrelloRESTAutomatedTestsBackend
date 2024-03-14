@@ -6,7 +6,6 @@
 
 1. [Cloning an automated test repository](#cloning-an-automated-test-repository)
 2. [Preparation of the web application environment](#preparation-of-the-web-application-environment)
-3. [Browser configuration](#browser-configuration)
 
 ## Cloning an automated test repository
 
@@ -16,7 +15,7 @@ Clone the **TrelloRESTAutomatedTestsBackend** repository:
 git clone https://github.com/Wojtalo94/TrelloRESTAutomatedTestsBackend.git
 ```
 
-## Preparation of the web application environment
+## Preparation of the environment
 
 Create a virtual environment (**venv**) along with the installation of additional libraries from the file **requirements.txt**:
 
