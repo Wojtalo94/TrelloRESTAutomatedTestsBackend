@@ -1,6 +1,6 @@
 Feature: User verification
 
-    @PoC @testing
+    @user
     Scenario: Check user
         Then The user was logged in as admin
         And The user is not deactivated

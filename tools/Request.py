@@ -5,7 +5,7 @@ import logging
 class Request():
     def __init__(self):
         self._logger = logging.getLogger("Request")
-        self._urls = {"boards": f"https://api.trello.com/1/boards/"}
+        self._urls = {"boards": "https://api.trello.com/1/boards/"}
     
     def url(self, name: str):
         if not name in self._urls:
@@ -44,3 +44,6 @@ class Request():
 
     def get_board(self, path: str):
         return self.get(self.url("boards") + path)
+
+    def delete_board(self, path: str):
+        return self.delete(self.url("boards") + path)
