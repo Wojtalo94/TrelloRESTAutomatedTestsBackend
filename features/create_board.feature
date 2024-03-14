@@ -1,6 +1,6 @@
 Feature: Create board verification
 
-    @board @testing
+    @board
     Scenario: The user is able to create a new board
         When The user creates an board named 'TestBoard'
         Then An board named 'TestBoard' has been created

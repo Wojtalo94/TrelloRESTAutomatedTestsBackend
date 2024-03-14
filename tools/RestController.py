@@ -13,8 +13,8 @@ class RestController():
         self.board_id = None
     
     def get_members_boards_information(self):
-        response, status_code = self._request.get_board(f"{self.board_id}/memberships?{self.query_string}")
-        return response, status_code
+        response = self._request.get_board(f"{self.board_id}/memberships?{self.query_string}")
+        return response
     
     def get_board_information(self):
         response = self._request.get_board(f"{self.board_id}?{self.query_string}")
