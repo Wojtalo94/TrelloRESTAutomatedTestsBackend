@@ -1,6 +1,6 @@
-Feature: Board verification
+Feature: User verification
 
     @PoC @testing
-    Scenario: Check created board
+    Scenario: Check user
         Then The user was logged in as admin
         And The user is not deactivated
