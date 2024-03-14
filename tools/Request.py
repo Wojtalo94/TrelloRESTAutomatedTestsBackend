@@ -47,3 +47,6 @@ class Request():
 
     def delete_board(self, path: str):
         return self.delete(self.url("boards") + path)
+    
+    def put_board(self, path: str):
+        return self.put(self.url("boards") + path)

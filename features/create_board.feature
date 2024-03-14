@@ -1,19 +1,27 @@
 Feature: Create board verification
 
-    @board
+    @board @testing
     Scenario: The user is able to create a new board
         When The user creates an board named 'TestBoard'
         Then An board named 'TestBoard' has been created
 
 
-    @board
-    Scenario: The user is able to change board name
-        When The user renames the board to 'T'
-        # tutaj zrobić scenario outline z różnymi nazwami tablicy, w tym dużo i mało liter, znaki specjalne, cyfry itp, a ostatnia nazwa żeby była TestBoard
+    @board @testing
+    Scenario Outline: The user is able to change board name
+        When The user renames the board to <board_name> and description to <board_desc>
+        Then Renamed the board to <board_name> and description to <board_desc>
+
+        Examples: Settings
+            | board_name                                               | board_desc                                               |
+            | T                                                        | T                                                        |
+            | 0                                                        | 0                                                        |
+            | 1@T2$As*49Q*5-T_6Y '^'   "   7U8I9                       | 1@T2$As*49Q*5-T_6Y '^'   "   7U8I9                       |
+            | aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa 1111111111111111111111111 | aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa 1111111111111111111111111 |
+            | TestBoard                                                | TestBoard                                                |
     
 
-    @board
+    @board @testing
     Scenario: The user is able to delete board
         When Remove the board
-        And The board has been removed
+        Then The board has been removed
     
