@@ -1,13 +1,13 @@
 Feature: Create board verification
 
-    @board @testing
+    @board
     Scenario: The user is able to create a new board
         When The user creates an board named 'TestBoard'
         Then An board named 'TestBoard' has been created
 
 
-    @board @testing
-    Scenario Outline: The user is able to change board name
+    @board
+    Scenario Outline: The user is able to change board name and description
         When The user renames the board to <board_name> and description to <board_desc>
         Then Renamed the board to <board_name> and description to <board_desc>
 
@@ -20,7 +20,7 @@ Feature: Create board verification
             | TestBoard                                                | TestBoard                                                |
     
 
-    @board @testing
+    @board
     Scenario: The user is able to delete board
         When Remove the board
         Then The board has been removed

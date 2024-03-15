@@ -1,4 +1,4 @@
-from behave import When, Then
+from behave import When, Then, Step
 import logging
 
 logger = logging.getLogger("Boards")
@@ -19,7 +19,7 @@ def step_impl(context, board_name):
     assert get_board_name == board_name, f"Wrong board name type: {get_board_name}, should be: {board_name}"
 
 
-@When("Remove the board")
+@Step("Remove the board")
 def step_impl(context):
     logger.info("The user deletes the board")
     context.rest_controller.delete_board()
@@ -33,16 +33,18 @@ def step_impl(context):
     assert response == {}, f"Board still present: {response}, should be: None"
 
 
-@When("Renamed the board to {board_name} and description to {board_desc}")
+@When("The user renames the board to {board_name} and description to {board_desc}")
 def step_impl(context, board_name, board_desc):
     logger.info(f"The user chane board name to: {board_name} and description to {board_desc}")
     context.rest_controller.update_board(board_name, board_desc)
 
 
 @Then("Renamed the board to {board_name} and description to {board_desc}")
-def step_impl(context, board_name):
+def step_impl(context, board_name, board_desc):
     logger.info(f"Checking if the {board_name} board has been updated")
     response, status_code = context.rest_controller.get_board_information()
     get_board_name = response['name']
+    get_board_desc = response['desc']
     assert status_code == 200, f"Expected status code 200, but got {status_code}"
     assert get_board_name == board_name, f"Wrong board name type: {get_board_name}, should be: {board_name}"
+    assert get_board_desc == board_desc, f"Wrong board description type: {get_board_desc}, should be: {board_desc}"

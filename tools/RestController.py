@@ -31,5 +31,5 @@ class RestController():
         assert status_code == 200, f"Expected status code 200, but got {status_code}"
 
     def update_board(self, board_name, board_desc):
-        _ , status_code = self._request.put_board(f"{self.board_id}?{self.query_string}&name={board_name}&desc{board_desc}")
+        _ , status_code = self._request.put_board(f"{self.board_id}?{self.query_string}&name={board_name}&desc={board_desc}")
         assert status_code == 200, f"Expected status code 200, but got {status_code}"
