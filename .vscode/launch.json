@@ -9,7 +9,7 @@
       "type": "debugpy",
       "request": "launch",
       "module": "behave",
-      "args": ["--tags=@testing"]
+      //"args": ["--tags=@testing"]
     }
   ]
 }
