@@ -12,5 +12,5 @@ jobs:
         uses: actions/checkout@v2
       - name: Push changes to GitLab
         run: |
-          git remote add gitlab https://gitlab.com/Wojtek94/TrelloRESTAutomatedTestsBackend
+          git remote add gitlab https://Wojtek94@gitlab.com/Wojtek94/TrelloRESTAutomatedTestsBackend
           git push gitlab main
