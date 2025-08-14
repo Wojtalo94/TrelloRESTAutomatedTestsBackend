@@ -17,6 +17,8 @@ class Request():
             data = response.json()
         except:
             data = {}
+        if response.status_code >= 400:
+            self._logger.error(f"Request failed: {response.status_code} - {response.text}")
         return data, response.status_code
 
     def get(self, url: str):
